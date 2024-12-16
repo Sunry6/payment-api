@@ -7,16 +7,16 @@ import { Model } from 'mongoose';
 export class UserService {
   constructor(@InjectModel(User.name) private userModal: Model<UserDocument>) {}
 
-  async create(user: Partial<User>): Promise<User> {
+  async create(user: Partial<UserDocument>): Promise<UserDocument> {
     const newUser = new this.userModal(user);
     return newUser.save();
   }
 
-  async findOneByUsername(username: string): Promise<User | null> {
+  async findOneByUsername(username: string): Promise<UserDocument | null> {
     return this.userModal.findOne({ username }).exec();
   }
 
-  async findOneById(id: string): Promise<User | null> {
+  async findOneById(id: string): Promise<UserDocument | null> {
     return this.userModal.findById(id).exec();
   }
 }

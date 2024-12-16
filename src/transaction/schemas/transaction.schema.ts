@@ -1,6 +1,6 @@
 import { Prop, SchemaFactory } from '@nestjs/mongoose';
 
-export type TransactionDocument = Transcation & Document;
+export type TransactionDocument = Transaction & Document;
 
 export class Transaction {
   @Prop({ required: true })
@@ -13,4 +13,4 @@ export class Transaction {
   date: Date;
 }
 
-export const TranscationSchema = SchemaFactory.createForClass(Transaction);
+export const TransactionSchema = SchemaFactory.createForClass(Transaction);
